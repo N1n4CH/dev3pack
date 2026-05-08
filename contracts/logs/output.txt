@@ -1,0 +1,5 @@
+   Compiling workspace v0.1.0 (/69fe12f5be9241901c1ce740/contracts/programs/workspace)
+    Finished `release` profile [optimized] target(s) in 3.95s
+   Compiling workspace v0.1.0 (/69fe12f5be9241901c1ce740/contracts/programs/workspace)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.19s
+     Running unittests src/lib.rs (/69fe12f5be9241901c1ce740/contracts/target/debug/deps/workspace-51ba4ba41e55366b)

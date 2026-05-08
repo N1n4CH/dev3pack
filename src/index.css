@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* AtomicYield Dark Theme */
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 217 33% 17%;
+    --popover-foreground: 210 40% 98%;
+
+    /* AtomicYield Purple */
+    --primary: 245 60% 67%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Solana Purple */
+    --secondary: 263 100% 64%;
+    --secondary-foreground: 210 40% 98%;
+
+    /* Achievement Amber */
+    --accent: 38 92% 50%;
+    --accent-foreground: 222 47% 11%;
+
+    --muted: 217 33% 22%;
+    --muted-foreground: 215 20% 65%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 25%;
+    --input: 217 33% 22%;
+    --ring: 245 60% 67%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar */
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 245 60% 67%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 25%;
+    --sidebar-ring: 245 60% 67%;
+
+    /* Custom AtomicYield tokens */
+    --surface: 217 33% 14%;
+    --surface-elevated: 217 33% 20%;
+    --glow-green: 157 90% 51%;
+    --glow-purple: 263 100% 64%;
+    --glow-amber: 38 92% 50%;
+    --success: 157 90% 51%;
+    --warning: 38 92% 50%;
+    --streak: 263 100% 64%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(245 60% 67%) 0%, hsl(263 100% 64%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(263 100% 64%) 0%, hsl(280 100% 55%) 100%);
+    --gradient-hero: linear-gradient(160deg, hsl(222 47% 8%) 0%, hsl(222 47% 11%) 30%, hsl(263 40% 15%) 70%, hsl(222 47% 11%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(217 33% 17%) 0%, hsl(217 33% 14%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(38 92% 50%) 0%, hsl(25 95% 55%) 100%);
+    --gradient-mesh: radial-gradient(ellipse at 20% 50%, hsl(245 60% 67% / 0.08) 0%, transparent 50%),
+                      radial-gradient(ellipse at 80% 20%, hsl(263 100% 64% / 0.08) 0%, transparent 50%),
+                      radial-gradient(ellipse at 50% 80%, hsl(38 92% 50% / 0.05) 0%, transparent 50%);
+
+    /* Shadows & Glows */
+    --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.4);
+    --shadow-elevated: 0 8px 32px -8px hsl(0 0% 0% / 0.5);
+    --glow-green-sm: 0 0 12px hsl(157 90% 51% / 0.3);
+    --glow-green-md: 0 0 24px hsl(157 90% 51% / 0.25), 0 0 48px hsl(157 90% 51% / 0.1);
+    --glow-green-lg: 0 0 40px hsl(157 90% 51% / 0.3), 0 0 80px hsl(157 90% 51% / 0.15);
+    --glow-purple-sm: 0 0 12px hsl(263 100% 64% / 0.3);
+    --glow-purple-md: 0 0 24px hsl(263 100% 64% / 0.25), 0 0 48px hsl(263 100% 64% / 0.1);
+    --glow-amber-sm: 0 0 12px hsl(38 92% 50% / 0.3);
+    --glow-amber-md: 0 0 24px hsl(38 92% 50% / 0.25), 0 0 48px hsl(38 92% 50% / 0.1);
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* Wallet Button Override */
+  .wallet-adapter-button-trigger {
+    background: linear-gradient(135deg, hsl(245 60% 67%) 0%, hsl(263 100% 64%) 100%) !important;
+    color: hsl(0 0% 100%) !important;
+    border-radius: 0.75rem !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 0.875rem !important;
+    padding: 0.625rem 1.25rem !important;
+    height: auto !important;
+    line-height: 1.25rem !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 0 12px hsl(245 60% 67% / 0.3) !important;
+    border: 1px solid hsl(245 60% 67% / 0.3) !important;
+  }
+
+  .wallet-adapter-button-trigger:hover {
+    box-shadow: 0 0 24px hsl(245 60% 67% / 0.4), 0 0 48px hsl(245 60% 67% / 0.15) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  .wallet-adapter-button-trigger:active {
+    transform: translateY(0) !important;
+  }
+
+  .wallet-adapter-modal-wrapper {
+    background-color: hsl(217 33% 14%) !important;
+    border: 1px solid hsl(217 33% 25%) !important;
+    border-radius: 1rem !important;
+  }
+
+  .wallet-adapter-modal-title {
+    font-family: 'Space Grotesk', sans-serif !important;
+    color: hsl(210 40% 98%) !important;
+  }
+
+  .wallet-adapter-modal-list li {
+    background-color: hsl(217 33% 17%) !important;
+    border-radius: 0.75rem !important;
+  }
+
+  .wallet-adapter-modal-list li:hover {
+    background-color: hsl(217 33% 22%) !important;
+  }
+
+  .wallet-adapter-modal-button-close {
+    background-color: hsl(217 33% 22%) !important;
+  }
+
+  /* Progress ring animation */
+  .progress-ring-circle {
+    transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+  }
+
+  /* Neon pulse animation */
+  .neon-pulse {
+    animation: neonPulse 3s ease-in-out infinite;
+  }
+
+  /* Card hover glow */
+  .card-glow-green:hover {
+    box-shadow: var(--glow-green-md);
+    border-color: hsl(157 90% 51% / 0.3);
+  }
+
+  .card-glow-primary:hover {
+    box-shadow: var(--glow-purple-md);
+    border-color: hsl(245 60% 67% / 0.3);
+  }
+
+  .card-glow-purple:hover {
+    box-shadow: var(--glow-purple-md);
+    border-color: hsl(263 100% 64% / 0.3);
+  }
+
+  .card-glow-amber:hover {
+    box-shadow: var(--glow-amber-md);
+    border-color: hsl(38 92% 50% / 0.3);
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(222 47% 11%);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(217 33% 25%);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(217 33% 35%);
+  }
+}
+
+@keyframes neonPulse {
+  0%, 100% { opacity: 1; filter: brightness(1); }
+  50% { opacity: 0.85; filter: brightness(1.15); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
