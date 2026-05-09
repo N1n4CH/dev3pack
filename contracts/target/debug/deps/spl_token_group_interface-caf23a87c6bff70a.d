@@ -1,0 +1,10 @@
+/Users/nina/Documents/GitHub/dev3pack/contracts/target/debug/deps/spl_token_group_interface-caf23a87c6bff70a.d: /Users/nina/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-token-group-interface-0.5.0/src/lib.rs /Users/nina/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-token-group-interface-0.5.0/src/error.rs /Users/nina/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-token-group-interface-0.5.0/src/instruction.rs /Users/nina/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-token-group-interface-0.5.0/src/state.rs
+
+/Users/nina/Documents/GitHub/dev3pack/contracts/target/debug/deps/libspl_token_group_interface-caf23a87c6bff70a.dylib: /Users/nina/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-token-group-interface-0.5.0/src/lib.rs /Users/nina/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-token-group-interface-0.5.0/src/error.rs /Users/nina/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-token-group-interface-0.5.0/src/instruction.rs /Users/nina/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-token-group-interface-0.5.0/src/state.rs
+
+/Users/nina/Documents/GitHub/dev3pack/contracts/target/debug/deps/libspl_token_group_interface-caf23a87c6bff70a.rlib: /Users/nina/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-token-group-interface-0.5.0/src/lib.rs /Users/nina/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-token-group-interface-0.5.0/src/error.rs /Users/nina/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-token-group-interface-0.5.0/src/instruction.rs /Users/nina/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-token-group-interface-0.5.0/src/state.rs
+
+/Users/nina/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-token-group-interface-0.5.0/src/lib.rs:
+/Users/nina/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-token-group-interface-0.5.0/src/error.rs:
+/Users/nina/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-token-group-interface-0.5.0/src/instruction.rs:
+/Users/nina/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spl-token-group-interface-0.5.0/src/state.rs:
