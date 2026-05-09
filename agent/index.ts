@@ -48,29 +48,6 @@ const CRON_SCHEDULE = process.env.CRON_SCHEDULE || '5 0 * * *'; // Daily at 00:0
 
 // ── Helpers ────────────────────────────────────────────────────────
 
-function loadOracleKeypair(): Keypair {
-  const privateKey = process.env.ORACLE_PRIVATE_KEY;
-  if (!privateKey) {
-    console.error('✗ ORACLE_PRIVATE_KEY not set in .env');
-    process.exit(1);
-  }
-
-  try {
-    // Try base58 first
-    const bs58 = await import('bs58');
-    const decoded = bs58.default.decode(privateKey);
-    return Keypair.fromSecretKey(decoded);
-  } catch {
-    try {
-      // Try JSON array format [1,2,3,...]
-      const arr = JSON.parse(privateKey);
-      return Keypair.fromSecretKey(Uint8Array.from(arr));
-    } catch {
-      console.error('✗ Invalid ORACLE_PRIVATE_KEY format. Use base58 or JSON array.');
-      process.exit(1);
-    }
-  }
-}
 
 function loadIDL(): any {
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
