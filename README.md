@@ -6,8 +6,8 @@ Gamified fitness staking on Solana. Users commit to daily health goals (steps, w
 
 | | |
 |---|---|
-| **Program ID** | `77NnA7iRfthT8wcdWxNsrueXbF7o251BzdBBDnDW4znf` |
-| **Explorer** | [View on Solana Explorer](https://explorer.solana.com/address/77NnA7iRfthT8wcdWxNsrueXbF7o251BzdBBDnDW4znf?cluster=devnet) |
+| **Program ID** | `GoaMsjPkq4o6NvCRduKMA4W7EcF5wWM8mXgZbLM65y9K` |
+| **Explorer** | [View on Solana Explorer](https://explorer.solana.com/address/GoaMsjPkq4o6NvCRduKMA4W7EcF5wWM8mXgZbLM65y9K?cluster=devnet) |
 | **Cluster** | Devnet |
 
 ## Setup
