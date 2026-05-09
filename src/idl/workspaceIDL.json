@@ -1,5 +1,5 @@
 {
-  "address": "77NnA7iRfthT8wcdWxNsrueXbF7o251BzdBBDnDW4znf",
+  "address": "GoaMsjPkq4o6NvCRduKMA4W7EcF5wWM8mXgZbLM65y9K",
   "metadata": {
     "name": "workspace",
     "version": "0.1.0",
@@ -364,6 +364,11 @@
           "writable": true
         },
         {
+          "name": "x402_facilitator",
+          "writable": true,
+          "docs": ["x402 micropayment facilitator — receives 50 bps protocol fee on settlement"]
+        },
+        {
           "name": "system_program",
           "address": "11111111111111111111111111111111"
         }
@@ -646,6 +651,10 @@
           },
           {
             "name": "reward_amount",
+            "type": "u64"
+          },
+          {
+            "name": "x402_fee",
             "type": "u64"
           }
         ]

@@ -1,0 +1,14 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
+  "framework": "vite",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "env": {
+    "VITE_DEV_MODE": "false",
+    "VITE_RPC_URL": "https://api.devnet.solana.com",
+    "VITE_PROGRAM_ID": "77NnA7iRfthT8wcdWxNsrueXbF7o251BzdBBDnDW4znf"
+  }
+}

@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+agent/node_modules/
+
+# Build output
+dist/
+contracts/target/
+
+# Environment — never commit secrets
+.env
+.env.local
+
+# Solana keypairs — never commit private keys
+*.json.bak
+contracts/target/deploy/*-keypair.json
+
+# OS
+.DS_Store

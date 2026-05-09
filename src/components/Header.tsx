@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Menu, X, FlaskConical } from 'lucide-react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { motion, AnimatePresence } from 'framer-motion';
 import AtomicIcon from './AtomicIcon';
+
+const DEV_MODE = import.meta.env.VITE_DEV_MODE === 'true';
 
 const navLinks = [
   { label: 'Dashboard', href: '#dashboard' },
@@ -38,6 +41,15 @@ const Header: React.FC = () => {
               {link.label}
             </a>
           ))}
+          {DEV_MODE && (
+            <Link
+              to="/test"
+              className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-yellow-500 hover:text-yellow-400 rounded-lg hover:bg-yellow-500/10 transition-all duration-200"
+            >
+              <FlaskConical className="h-3.5 w-3.5" />
+              Test
+            </Link>
+          )}
         </nav>
 
         {/* Right side */}
@@ -72,6 +84,16 @@ const Header: React.FC = () => {
                   {link.label}
                 </a>
               ))}
+              {DEV_MODE && (
+                <Link
+                  to="/test"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center gap-1.5 px-4 py-3 text-sm font-medium text-yellow-500 hover:text-yellow-400 rounded-lg hover:bg-yellow-500/10 transition-colors"
+                >
+                  <FlaskConical className="h-3.5 w-3.5" />
+                  Test
+                </Link>
+              )}
             </nav>
           </motion.div>
         )}
