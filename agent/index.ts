@@ -14,7 +14,8 @@
  */
 
 import 'dotenv/config';
-import { AnchorProvider, BN, Program, Wallet } from '@coral-xyz/anchor';
+import { AnchorProvider, Program, Wallet } from '@coral-xyz/anchor';
+import BN from 'bn.js';
 import {
   Connection,
   Keypair,

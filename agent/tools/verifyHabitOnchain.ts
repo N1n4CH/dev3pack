@@ -5,7 +5,8 @@
  * oracle keypair. The oracle must match staking_pool.authority.
  */
 
-import { BN, Program } from '@coral-xyz/anchor';
+import { Program } from '@coral-xyz/anchor';
+import BN from 'bn.js';
 import {
   Connection,
   Keypair,

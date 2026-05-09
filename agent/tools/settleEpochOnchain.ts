@@ -6,7 +6,8 @@
  * but the oracle runs it automatically so users don't have to.
  */
 
-import { BN, Program } from '@coral-xyz/anchor';
+import { Program } from '@coral-xyz/anchor';
+import BN from 'bn.js';
 import { PublicKey, SystemProgram } from '@solana/web3.js';
 
 import type { OracleContext } from '../index.js';
