@@ -1,0 +1,13 @@
+[build]
+builder = "nixpacks"
+
+[deploy]
+startCommand = "npm start"
+restartPolicyType = "always"
+restartPolicyMaxRetries = 5
+
+[environments.production.variables]
+RPC_URL = "https://api.devnet.solana.com"
+PROGRAM_ID = "77NnA7iRfthT8wcdWxNsrueXbF7o251BzdBBDnDW4znf"
+CRON_SCHEDULE = "5 0 * * *"
+# Set ORACLE_PRIVATE_KEY as a secret in the Railway dashboard — never commit it
