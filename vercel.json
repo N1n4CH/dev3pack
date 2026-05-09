@@ -9,6 +9,6 @@
   "env": {
     "VITE_DEV_MODE": "false",
     "VITE_RPC_URL": "https://api.devnet.solana.com",
-    "VITE_PROGRAM_ID": "77NnA7iRfthT8wcdWxNsrueXbF7o251BzdBBDnDW4znf"
+    "VITE_PROGRAM_ID": "GoaMsjPkq4o6NvCRduKMA4W7EcF5wWM8mXgZbLM65y9K"
   }
 }
