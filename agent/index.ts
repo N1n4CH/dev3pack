@@ -52,18 +52,26 @@ const CRON_SCHEDULE = process.env.CRON_SCHEDULE || '5 0 * * *'; // Daily at 00:0
 
 function loadIDL(): any {
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
-  const idlPath = path.resolve(__dirname, '..', 'src', 'idl', 'workspaceIDL.json');
 
-  if (!fs.existsSync(idlPath)) {
-    // Fallback: contracts output
-    const fallback = path.resolve(__dirname, '..', 'contracts', 'target', 'idl', 'workspace.json');
-    if (!fs.existsSync(fallback)) {
-      console.error(`✗ IDL not found at ${idlPath} or ${fallback}`);
-      process.exit(1);
-    }
-    return JSON.parse(fs.readFileSync(fallback, 'utf-8'));
+  // First: bundled alongside the agent (Railway deployment)
+  const localIdl = path.resolve(__dirname, 'idl', 'workspaceIDL.json');
+  if (fs.existsSync(localIdl)) {
+    return JSON.parse(fs.readFileSync(localIdl, 'utf-8'));
   }
-  return JSON.parse(fs.readFileSync(idlPath, 'utf-8'));
+
+  // Fallback: monorepo root layout
+  const idlPath = path.resolve(__dirname, '..', 'src', 'idl', 'workspaceIDL.json');
+  if (fs.existsSync(idlPath)) {
+    return JSON.parse(fs.readFileSync(idlPath, 'utf-8'));
+  }
+
+  // Last fallback: contracts build output
+  const fallback = path.resolve(__dirname, '..', 'contracts', 'target', 'idl', 'workspace.json');
+  if (!fs.existsSync(fallback)) {
+    console.error(`✗ IDL not found at ${localIdl}, ${idlPath} or ${fallback}`);
+    process.exit(1);
+  }
+  return JSON.parse(fs.readFileSync(fallback, 'utf-8'));
 }
 
 function timestamp(): string {
