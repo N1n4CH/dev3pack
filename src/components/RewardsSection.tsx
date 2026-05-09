@@ -20,8 +20,7 @@ interface EpochOutcome {
   status: 'completed' | 'failed';
   staked: number;
   returned: number;
-  yieldEarned: number;
-  bonusPool: number;
+  forfeitShare: number;
 }
 
 interface NFTBadge {
@@ -42,8 +41,7 @@ const epochOutcomes: EpochOutcome[] = [
     status: 'completed',
     staked: 2.0,
     returned: 2.0,
-    yieldEarned: 0.12,
-    bonusPool: 0.35,
+    forfeitShare: 0.35,
   },
   {
     id: '2',
@@ -52,8 +50,7 @@ const epochOutcomes: EpochOutcome[] = [
     status: 'completed',
     staked: 1.0,
     returned: 1.0,
-    yieldEarned: 0.06,
-    bonusPool: 0.18,
+    forfeitShare: 0.18,
   },
   {
     id: '3',
@@ -62,8 +59,7 @@ const epochOutcomes: EpochOutcome[] = [
     status: 'failed',
     staked: 3.0,
     returned: 0,
-    yieldEarned: 0,
-    bonusPool: 0,
+    forfeitShare: 0,
   },
 ];
 
@@ -140,7 +136,7 @@ const rarityStyles: Record<string, { border: string; bg: string; text: string; g
 const RewardsSection: React.FC = () => {
   const totalClaimable = epochOutcomes
     .filter((e) => e.status === 'completed')
-    .reduce((sum, e) => sum + e.yieldEarned + e.bonusPool, 0);
+    .reduce((sum, e) => sum + e.forfeitShare, 0);
 
   return (
     <section id="rewards" className="py-20 md:py-28 relative">
@@ -160,7 +156,7 @@ const RewardsSection: React.FC = () => {
             Rewards & <span className="text-accent">Achievements</span>
           </h2>
           <p className="mt-3 text-muted-foreground max-w-lg mx-auto">
-            Claim your yields, review epoch outcomes, and collect cNFT badges for your achievements.
+            Claim your stake returns, review epoch outcomes, and collect cNFT badges for your achievements.
           </p>
         </motion.div>
 
@@ -186,7 +182,7 @@ const RewardsSection: React.FC = () => {
                     <span className="text-sm text-primary/70 font-medium">SOL</span>
                   </div>
                   <p className="text-xs text-muted-foreground mt-1">
-                    From Kamino yield + forfeited pool distributions
+                    Stake returned + forfeit pool share (Kamino yield coming soon)
                   </p>
                 </div>
               </div>
@@ -247,18 +243,14 @@ const RewardsSection: React.FC = () => {
                     </div>
 
                     {outcome.status === 'completed' ? (
-                      <div className="grid grid-cols-3 gap-2">
+                      <div className="grid grid-cols-2 gap-2">
                         <div className="rounded-lg bg-muted/30 px-3 py-2 text-center">
-                          <p className="text-[10px] text-muted-foreground uppercase">Returned</p>
+                          <p className="text-[10px] text-muted-foreground uppercase">Stake Returned</p>
                           <p className="text-xs font-bold text-foreground">{outcome.returned} SOL</p>
                         </div>
-                        <div className="rounded-lg bg-primary/5 px-3 py-2 text-center">
-                          <p className="text-[10px] text-primary/70 uppercase">Yield</p>
-                          <p className="text-xs font-bold text-primary">+{outcome.yieldEarned} SOL</p>
-                        </div>
                         <div className="rounded-lg bg-accent/5 px-3 py-2 text-center">
-                          <p className="text-[10px] text-accent/70 uppercase">Bonus</p>
-                          <p className="text-xs font-bold text-accent">+{outcome.bonusPool} SOL</p>
+                          <p className="text-[10px] text-accent/70 uppercase">Forfeit Pool Share</p>
+                          <p className="text-xs font-bold text-accent">+{outcome.forfeitShare} SOL</p>
                         </div>
                       </div>
                     ) : (

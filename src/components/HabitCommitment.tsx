@@ -243,15 +243,15 @@ const HabitCommitment: React.FC = () => {
 
                     {/* Potential rewards */}
                     <div className="mt-6 rounded-xl border border-primary/20 bg-primary/5 p-4">
-                      <p className="text-xs text-muted-foreground mb-2">Estimated Rewards on Completion</p>
+                      <p className="text-xs text-muted-foreground mb-2">On Successful Completion</p>
                       <div className="flex items-baseline gap-2">
                         <span className="font-display text-2xl font-bold text-primary">
-                          {(displayAmount + (displayAmount * 18 * selectedEpoch) / 36500).toFixed(3)}
+                          {displayAmount.toFixed(3)}
                         </span>
-                        <span className="text-sm text-primary/70">SOL</span>
+                        <span className="text-sm text-primary/70">SOL returned</span>
                       </div>
                       <p className="text-xs text-muted-foreground mt-1">
-                        Includes Kamino yield + forfeited pool share
+                        Stake returned + forfeit pool share (Kamino yield coming soon)
                       </p>
                     </div>
                   </div>

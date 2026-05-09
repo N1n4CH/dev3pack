@@ -7,7 +7,10 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 5173,
     allowedHosts: true,
-    watch: { usePolling: true }
+    watch: {
+      usePolling: true,
+      ignored: ['**/agent/**'],
+    },
   },
   plugins: [react()],
   resolve: {
@@ -18,4 +21,9 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-}) 
+  build: {
+    rollupOptions: {
+      external: (id: string) => id.startsWith('/agent') || id.includes('agent/'),
+    },
+  },
+})

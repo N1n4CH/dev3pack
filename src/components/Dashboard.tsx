@@ -30,7 +30,6 @@ interface ActiveHabit {
   streak: number;
   verified: boolean;
   status: 'active' | 'at_risk';
-  apy: number;
   epochId: number;
 }
 
@@ -45,7 +44,6 @@ const mockHabits: ActiveHabit[] = [
     streak: 9,
     verified: true,
     status: 'active',
-    apy: 18.4,
     epochId: 1001,
   },
   {
@@ -58,7 +56,6 @@ const mockHabits: ActiveHabit[] = [
     streak: 4,
     verified: false,
     status: 'active',
-    apy: 15.2,
     epochId: 1002,
   },
   {
@@ -71,7 +68,6 @@ const mockHabits: ActiveHabit[] = [
     streak: 22,
     verified: true,
     status: 'active',
-    apy: 22.1,
     epochId: 1003,
   },
 ];
@@ -80,7 +76,7 @@ const overviewStats = [
   { label: 'Total Staked', value: '8.5 SOL', change: '+2.5', icon: Coins, color: 'primary' as const },
   { label: 'Active Streaks', value: '3', change: '+1', icon: Flame, color: 'secondary' as const },
   { label: 'Days Active', value: '22', change: null, icon: Calendar, color: 'accent' as const },
-  { label: 'Est. Yield', value: '0.42 SOL', change: '+12%', icon: TrendingUp, color: 'primary' as const },
+  { label: 'Forfeit Pool', value: '0.53 SOL', change: null, icon: TrendingUp, color: 'primary' as const },
 ];
 
 const colorClasses = {
@@ -359,8 +355,8 @@ const Dashboard: React.FC = () => {
                         <p className="font-display text-sm font-bold text-foreground">{daysLeft}</p>
                       </div>
                       <div className="text-center rounded-lg bg-muted/30 py-2.5">
-                        <p className="text-xs text-muted-foreground">APY</p>
-                        <p className="font-display text-sm font-bold text-primary">{habitItem.apy}%</p>
+                        <p className="text-xs text-muted-foreground">Staked</p>
+                        <p className="font-display text-sm font-bold text-primary">{habitItem.staked}</p>
                       </div>
                     </div>
 

@@ -123,19 +123,7 @@ pub mod workspace {
         let mut reward_amount: u64 = 0;
 
         if is_winner {
-            let stake = commitment.stake_amount;
-            let days = commitment.epoch_days as u64;
-            let yield_amount = stake
-                .checked_mul(18)
-                .ok_or(ErrorCode::MathOverflow)?
-                .checked_mul(days)
-                .ok_or(ErrorCode::MathOverflow)?
-                .checked_div(36500)
-                .ok_or(ErrorCode::MathOverflow)?;
-
-            reward_amount = stake
-                .checked_add(yield_amount)
-                .ok_or(ErrorCode::MathOverflow)?;
+            reward_amount = commitment.stake_amount;
 
             let vault_bump = [ctx.bumps.vault];
             let vault_seeds = &[b"vault" as &[u8], &vault_bump];
@@ -155,13 +143,9 @@ pub mod workspace {
             let _ = signer_seeds;
 
             let pool = &mut ctx.accounts.staking_pool;
-            pool.total_yield_accumulated = pool
-                .total_yield_accumulated
-                .checked_add(yield_amount)
-                .ok_or(ErrorCode::MathOverflow)?;
             pool.total_staked = pool
                 .total_staked
-                .checked_sub(stake)
+                .checked_sub(reward_amount)
                 .ok_or(ErrorCode::MathOverflow)?;
         }
 
@@ -377,7 +361,7 @@ pub struct ClaimNftBadge<'info> {
     pub user: Signer<'info>,
 }
 
-// ── Events ─────────────────────────────────────────────────────��────────
+// ── Events ──────────────────────────────────────────────────────────────
 
 #[event]
 pub struct HabitVerified {
