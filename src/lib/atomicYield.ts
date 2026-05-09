@@ -248,11 +248,16 @@ export class AtomicYieldSDK {
     }
   }
 
-  /** Settle an epoch after it ends. Anyone can call this. */
+  /** Settle an epoch after it ends. Anyone can call this.
+   *  x402: 50 bps of the winner's stake is routed to `facilitatorPubkey`
+   *  before release — implementing on-chain x402 micropayment routing.
+   *  Defaults to the connected wallet on devnet (oracle = facilitator).
+   */
   async settleEpoch(
     ownerPubkey: PublicKey,
     epochId: number,
-  ): Promise<SDKResult<{ signature: string }>> {
+    facilitatorPubkey?: PublicKey,
+  ): Promise<SDKResult<{ signature: string; x402Fee: string }>> {
     if (!this.provider.publicKey) return { success: false, error: 'Wallet not connected' };
     try {
       if (!(await this.testConnection())) return { success: false, error: 'Network unavailable' };
@@ -260,6 +265,7 @@ export class AtomicYieldSDK {
       const [habitCommitment] = await this.getHabitCommitmentPDA(ownerPubkey, epochId);
       const [stakingPool] = await this.getStakingPoolPDA();
       const [vault] = await this.getVaultPDA();
+      const x402Facilitator = facilitatorPubkey ?? this.provider.publicKey;
 
       const tx = await this.program.methods
         .settleEpoch(epochIdBN)
@@ -268,11 +274,23 @@ export class AtomicYieldSDK {
           stakingPool,
           vault,
           owner: ownerPubkey,
+          x402Facilitator,
           systemProgram: SystemProgram.programId,
         })
         .rpc();
 
-      return { success: true, data: { signature: tx } };
+      // Fetch the commitment to calculate the fee that was routed (50 bps)
+      const commitResult = await this.fetchHabitCommitment(ownerPubkey, epochId);
+      const stakeAmount = commitResult.data?.stakeAmount ?? this.safeBN(0);
+      const feeLamports = stakeAmount.muln(50).divn(10000);
+
+      return {
+        success: true,
+        data: {
+          signature: tx,
+          x402Fee: `${(feeLamports.toNumber() / 1e9).toFixed(6)} SOL`,
+        },
+      };
     } catch (error: any) {
       return { success: false, error: error?.message || 'Settle epoch failed' };
     }
