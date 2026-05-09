@@ -62,7 +62,7 @@ const Footer: React.FC = () => {
             Built on Solana. Powered by Kamino Finance.
           </p>
           <p className="text-xs text-muted-foreground">
-            AtomicYield &copy; 2025. All rights reserved.
+            AtomicYield &copy; 2026. All rights reserved.
           </p>
         </div>
       </div>
